@@ -25,4 +25,11 @@ open class Toast : UIView {
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("CircleView is not NSCoding compliant")
-    }}
+    }
+    
+    //fonction changement couleur background
+    
+    //fonction choix icone
+    
+
+}
