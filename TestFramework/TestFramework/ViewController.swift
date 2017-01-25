@@ -12,8 +12,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.clear
-        view.isOpaque = false
+//        view.backgroundColor = UIColor.clear
+//        view.isOpaque = false
+        let toastView = Toast(frame: CGRect(x:0 ,y: 0, width: self.view.frame.size.width, height:self.view.frame.size.height), title: "yolo")
+        self.view.addSubview(toastView)
+
     }
 
     override func didReceiveMemoryWarning() {

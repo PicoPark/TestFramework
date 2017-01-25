@@ -16,6 +16,10 @@ open class Toast : UIView {
     convenience init(frame: CGRect, title: String) {
         self.init(frame: frame)
         self.title.text = title
+        self.title.textColor = .black
+        self.backgroundColor = .red
+        self.title.text = "yolo"
+
     }
     
     override init(frame: CGRect) {
