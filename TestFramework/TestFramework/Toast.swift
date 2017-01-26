@@ -16,12 +16,13 @@ open class Toast {
     var view: UIView!
     
     var title: UILabel!
+    let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     
     private func createToast(message: String, type: ToasType) -> UIView {
 //        self.view = UIView(frame: frame)
 //        self.view.backgroundColor = .clear
-        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
         self.title = UILabel(frame: CGRect(x:20.0, y:(appDel.window?.rootViewController?.view.frame.size.height)!-80, width:(appDel.window?.rootViewController?.view.frame.size.width)!-40, height:60))
         self.title.textAlignment = .center
@@ -48,18 +49,15 @@ open class Toast {
     
 
     func warningToast( message: String)  {
-        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDel.window?.rootViewController?.view.addSubview(self.createToast(message: message, type: .warning))
     }
     
     func infoToast(message: String) {
-        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDel.window?.rootViewController?.view.addSubview(self.createToast(message: message, type: .info))
         
     }
     
     func dangerToast(frame: CGRect, message: String)  {
-        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDel.window?.rootViewController?.view.addSubview(self.createToast(message: message , type: .danger))
     }
     
