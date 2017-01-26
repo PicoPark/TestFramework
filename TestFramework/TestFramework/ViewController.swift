@@ -20,7 +20,7 @@ class ViewController: UIViewController {
 //        label.backgroundColor = .red
 //        label.text = "I'am a test label"
         
-        Toast.shared.infoToast(frame: CGRect(x:20.0, y:view.frame.size.height-80, width:view.frame.size.width-40, height:60), message: "Bisous")
+        Toast.shared.infoToast( message: "Bisous")
         
         
 
