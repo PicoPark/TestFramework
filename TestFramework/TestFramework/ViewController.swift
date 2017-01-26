@@ -14,8 +14,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 //        view.backgroundColor = UIColor.clear
 //        view.isOpaque = false
-        let toastView = Toast(title: "yolo", view: self.view)
-        self.view.addSubview(toastView)
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+//        label.center = CGPoint(x: 160, y: 285)
+//        label.textAlignment = .center
+//        label.backgroundColor = .red
+//        label.text = "I'am a test label"
+        
+        Toast.shared.infoToast(frame: CGRect(x:20.0, y:view.frame.size.height-80, width:view.frame.size.width-40, height:60), message: "Bisous")
+        
+        
 
     }
 
