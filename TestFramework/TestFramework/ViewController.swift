@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 //        view.backgroundColor = UIColor.clear
 //        view.isOpaque = false
-        let toastView = Toast(frame: CGRect(x:0 ,y: 0, width: self.view.frame.size.width, height:self.view.frame.size.height), title: "yolo")
+        let toastView = Toast(title: "yolo", view: self.view)
         self.view.addSubview(toastView)
 
     }
