@@ -21,8 +21,9 @@ open class Toast {
     private func createToast(message: String, type: ToasType) -> UIView {
 //        self.view = UIView(frame: frame)
 //        self.view.backgroundColor = .clear
-        
-        self.title = UILabel(frame: CGRect(x:20.0, y:view.frame.size.height-80, width:view.frame.size.width-40, height:60))
+        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        self.title = UILabel(frame: CGRect(x:20.0, y:(appDel.window?.rootViewController?.view.frame.size.height)!-80, width:(appDel.window?.rootViewController?.view.frame.size.width)!-40, height:60))
         self.title.textAlignment = .center
         self.title.text = message
         self.title.textColor = UIColor.black
