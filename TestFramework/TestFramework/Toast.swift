@@ -20,52 +20,65 @@ open class Toast {
 
     
     
-    private func createToast(message: String, type: ToasType) -> UIView {
-//        self.view = UIView(frame: frame)
-//        self.view.backgroundColor = .clear
+    private func createToast(message: String, MainView: UIView,type: ToasType, duration: ToastDuration) -> UIView {
 
-        self.title = UILabel(frame: CGRect(x:20.0, y:(appDel.window?.rootViewController?.view.frame.size.height)!-80, width:(appDel.window?.rootViewController?.view.frame.size.width)!-40, height:60))
+        self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-80, width:(MainView.frame.size.width)-40, height:60))
         self.title.textAlignment = .center
-        self.title.text = message
-        self.title.textColor = UIColor.black
+        self.title.layer.cornerRadius = 8
+        self.title.layer.masksToBounds = true
         
         switch type {
-        case .warning:
-            self.title.backgroundColor = .yellow
+            case .warning:
+                self.title.backgroundColor = .yellow
+                self.title.textColor = .black
+                self.title.text = "⚠️ " + message
+
             
-        case .danger:
-            self.title.backgroundColor = .red
+            case .danger:
+                self.title.backgroundColor = .red
+                self.title.textColor = .white
+                self.title.text = "⚠️ " + message
+
             
-        case .info:
-            self.title.backgroundColor = .blue
+            case .info:
+                self.title.backgroundColor = .blue
+                self.title.textColor = .white
+                self.title.text = "ℹ️ " + message
+
         }
         
-        self.title.layer.cornerRadius = 10
-        self.title.layer.masksToBounds = true
+        switch duration {
+            case .long:
+                UIView.animate(withDuration: 1.0, delay: 6.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    self.title.alpha = CGFloat(0.0)
+                    }, completion: nil)
+            
+            case .short:
+                UIView.animate(withDuration: 1.0, delay: 3.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    self.title.alpha = CGFloat(0.0)
+                }, completion: nil)
+        }
         
         return self.title
     }
     
     
 
-    func warningToast( message: String)  {
-        appDel.window?.rootViewController?.view.addSubview(self.createToast(message: message, type: .warning))
+    func warningToast( message: String, viewMain:UIView, duration: ToastDuration)  {
+      viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .warning,duration: duration))
     }
     
-    func infoToast(message: String) {
-        appDel.window?.rootViewController?.view.addSubview(self.createToast(message: message, type: .info))
-        
+    func infoToast(message: String,viewMain:UIView, duration: ToastDuration) {
+       viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .info,duration: duration))
     }
     
-    func dangerToast(frame: CGRect, message: String)  {
-        appDel.window?.rootViewController?.view.addSubview(self.createToast(message: message , type: .danger))
+    func dangerToast( message: String,viewMain:UIView, duration: ToastDuration)  {
+        viewMain.addSubview(self.createToast(message: message , MainView: viewMain, type: .danger,duration: duration))
     }
     
     private init() {
         self.view = UIView()
         self.title = UILabel()
-        
-
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -75,7 +88,11 @@ open class Toast {
     
 
 }
+// Listing des variables
 
 enum ToasType {
     case info, danger, warning
+}
+enum ToastDuration {
+    case long, short
 }

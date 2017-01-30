@@ -20,7 +20,7 @@ class ViewController: UIViewController {
 //        label.backgroundColor = .red
 //        label.text = "I'am a test label"
         
-        Toast.shared.infoToast( message: "Bisous")
+        Toast.shared.infoToast( message: "Bisous", viewMain: self.view,duration: .short)
         
         
 
