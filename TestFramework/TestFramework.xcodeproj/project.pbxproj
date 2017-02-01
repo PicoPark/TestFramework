@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25A7AF091E413386007C6A9A /* 5004497_orig.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A7AF081E413386007C6A9A /* 5004497_orig.png */; };
 		767A39541E38BFCA001814C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A39531E38BFCA001814C4 /* AppDelegate.swift */; };
 		767A39561E38BFCA001814C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A39551E38BFCA001814C4 /* ViewController.swift */; };
 		767A39591E38BFCA001814C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 767A39571E38BFCA001814C4 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25A7AF081E413386007C6A9A /* 5004497_orig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5004497_orig.png; path = ../../../Downloads/5004497_orig.png; sourceTree = "<group>"; };
 		767A39501E38BFCA001814C4 /* TestFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		767A39531E38BFCA001814C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		767A39551E38BFCA001814C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				767A395A1E38BFCA001814C4 /* Assets.xcassets */,
 				767A395C1E38BFCA001814C4 /* LaunchScreen.storyboard */,
 				767A395F1E38BFCA001814C4 /* Info.plist */,
+				25A7AF081E413386007C6A9A /* 5004497_orig.png */,
 				767A39731E38C0AE001814C4 /* Toast.swift */,
 			);
 			path = TestFramework;
@@ -184,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25A7AF091E413386007C6A9A /* 5004497_orig.png in Resources */,
 				767A395E1E38BFCA001814C4 /* LaunchScreen.storyboard in Resources */,
 				767A395B1E38BFCA001814C4 /* Assets.xcassets in Resources */,
 				767A39591E38BFCA001814C4 /* Main.storyboard in Resources */,
@@ -416,6 +420,7 @@
 				767A396F1E38BFCA001814C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		767A39701E38BFCA001814C4 /* Build configuration list for PBXNativeTarget "TestFrameworkTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +429,7 @@
 				767A39721E38BFCA001814C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
