@@ -20,8 +20,8 @@ class ViewController: UIViewController {
 //        label.backgroundColor = .red
 //        label.text = "I'am a test label"
         
-        Toast.shared.imageToast( message: "BaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisous", viewMain: self.view,duration: .long, img: UIImage(named: "5004497_orig.png")!)
-//        Toast.shared.warningToast(message: "Nooon", viewMain: self.view, duration: .short)
+//        Toast.shared.imageToast( message: "BaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisous", viewMain: self.view,duration: .long, img: UIImage(named: "5004497_orig.png")!)
+        Toast.shared.warningToast(message: "NooBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisouson", viewMain: self.view, duration: .short)
         
         
 

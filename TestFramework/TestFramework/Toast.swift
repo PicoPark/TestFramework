@@ -23,9 +23,22 @@ open class Toast {
     
     
     private func createToast(message: String, MainView: UIView,type: ToasType, duration: ToastDuration, img: UIImage?) -> UIView {
+        
+        var finalView = UIView()
+        finalView.frame = MainView.frame
 
         if img == nil {
-            self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-80, width:(MainView.frame.size.width)-40, height:60))
+//            self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-80, width:(MainView.frame.size.width)-40, height:60))
+            self.title = UILabel(frame: CGRect.zero)
+            finalView.addSubview(self.title)
+            self.title.bottomAnchor.constraint(equalTo: finalView.bottomAnchor, constant: -30).isActive = true
+            self.title.centerXAnchor.constraint(equalTo: finalView.centerXAnchor).isActive = true
+//            let margin = finalView.layoutMarginsGuide
+            var inset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+//            self.title.layer.borderWidth.add(5)
+//            self.title.frame = UIEdgeInsetsInsetRect(self.title.frame, inset)
+            self.title.drawText(in: UIEdgeInsetsInsetRect(self.title.frame, inset))
+            self.title.translatesAutoresizingMaskIntoConstraints = false
         } else {
             self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-80, width:(MainView.frame.size.width)-40, height:160))
 //            self.imageV = UIImageView(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-160, width:(MainView.frame.size.width)-40, height:60))
@@ -71,9 +84,9 @@ open class Toast {
                 }, completion: nil)
         }
         
-        let finalView = UIView()
-        finalView.addSubview(self.title)
-        finalView.addSubview(self.imageV)
+        
+//        finalView.addSubview(self.title)
+//        finalView.addSubview(self.imageV)
         return finalView
     }
     
