@@ -28,22 +28,27 @@ open class Toast {
         finalView.frame = MainView.frame
 
         if img == nil {
-//            self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-80, width:(MainView.frame.size.width)-40, height:60))
-            self.title = UILabel(frame: CGRect.zero)
+            if message.characters.count < 20 {
+                self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-80, width:(MainView.frame.size.width)-40, height:60))
+                
+            } else if message.characters.count > 20 {
+                self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-120, width:(MainView.frame.size.width)-40, height:100))
+            }else{
+                
+            }
             finalView.addSubview(self.title)
-            self.title.bottomAnchor.constraint(equalTo: finalView.bottomAnchor, constant: -30).isActive = true
-            self.title.centerXAnchor.constraint(equalTo: finalView.centerXAnchor).isActive = true
-//            let margin = finalView.layoutMarginsGuide
-            var inset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
-//            self.title.layer.borderWidth.add(5)
-//            self.title.frame = UIEdgeInsetsInsetRect(self.title.frame, inset)
-            self.title.drawText(in: UIEdgeInsetsInsetRect(self.title.frame, inset))
-            self.title.translatesAutoresizingMaskIntoConstraints = false
+            self.title.lineBreakMode = .byWordWrapping
+            self.title.numberOfLines = 0
         } else {
-            self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-80, width:(MainView.frame.size.width)-40, height:160))
-//            self.imageV = UIImageView(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-160, width:(MainView.frame.size.width)-40, height:60))
+            finalView.addSubview(self.imageV)
+            finalView.addSubview(self.title)
+            
+            self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-120, width:(MainView.frame.size.width)-40, height:100))
             self.imageV = UIImageView(image: img)
-            self.imageV.frame = CGRect(x:20.0, y:(MainView.frame.size.height)-500, width:(img?.size.width)!, height:(img?.size.height)!)
+            self.imageV.frame = CGRect(x:20.0, y:(MainView.frame.size.height)-300, width:(img?.size.width)!, height:(img?.size.height)!)
+            self.imageV.translatesAutoresizingMaskIntoConstraints = false
+            self.imageV.centerXAnchor.constraint(equalTo: finalView.centerXAnchor).isActive = true
+            
         }
         
         self.title.textAlignment = .center
