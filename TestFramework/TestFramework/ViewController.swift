@@ -21,8 +21,10 @@ class ViewController: UIViewController {
 //        label.text = "I'am a test label"
         
 //        Toast.shared.imageToast( message: "BaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisous", viewMain: self.view,duration: .long, img: UIImage(named: "5004497_orig.png")!)
-        Toast.shared.warningToast(message: "NooBaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaisouson", viewMain: self.view, duration: .long, position: .center)
         
+//        Toast.shared.warningToast(message: "NooBaaaaaaaa aaNooB aaaaaaaaaaNooBaaa aaaaaa aNooBaaaa aaaaaaNooBaaaa aaaaaaNo oBaaaaaaaaaa", viewMain: self.view, duration: .long, position: .center)
+        
+        Toast.shared.customToast(message: "NooBaaaaaaaa aaNooB aaaaaaaaaaNooBaaa aaaaaa aNooBaaaa aaaaaaNooBaaaa aaaaaaNo oBaaaaaaaaaaaaaaaaaaaaaaaaaa", viewMain: self.view, duration: .long, position: .center, textColor: .yellow, backgroundColor: .brown)
         
 
     }
