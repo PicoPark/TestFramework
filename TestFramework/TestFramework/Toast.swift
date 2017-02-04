@@ -19,23 +19,26 @@ open class Toast {
     
     var imageV: UIImageView
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var imageSize = CGSize(width: 80.0, height: 80.0)
 
     
     
-    private func createToast(message: String, MainView: UIView,type: ToasType, duration: ToastDuration, img: UIImage?) -> UIView {
+    private func createToast(message: String, MainView: UIView,type: ToasType, duration: ToastDuration, img: UIImage?, position: ToastPosition) -> UIView {
         
         var finalView = UIView()
         finalView.frame = MainView.frame
 
         if img == nil {
-            if message.characters.count < 20 {
-                self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-80, width:(MainView.frame.size.width)-40, height:60))
-                
-            } else if message.characters.count > 20 {
-                self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-120, width:(MainView.frame.size.width)-40, height:100))
-            }else{
-                
-            }
+            self.title = UILabel(frame: CGRect(x: toastPosition(position: position, view: finalView).x, y: toastPosition(position: position, view: finalView).y, width:(MainView.frame.size.width)-40, height:60.0))
+//            if message.characters.count < 20 {
+//                self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-80, width:(MainView.frame.size.width)-40, height:60))
+//                
+//            } else if message.characters.count > 20 {
+//                self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-120, width:(MainView.frame.size.width)-40, height:100))
+//            }else{
+//                
+//            }
             finalView.addSubview(self.title)
             self.title.lineBreakMode = .byWordWrapping
             self.title.numberOfLines = 0
@@ -90,25 +93,27 @@ open class Toast {
         }
         
         
+        
+        
 //        finalView.addSubview(self.title)
 //        finalView.addSubview(self.imageV)
         return finalView
     }
     
-    func imageToast(message: String, viewMain:UIView, duration: ToastDuration, img: UIImage){
-        viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .warning,duration: duration, img: img))
+    func imageToast(message: String, viewMain:UIView, duration: ToastDuration, img: UIImage, position: ToastPosition){
+        viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .warning,duration: duration, img: img, position: position))
     }
 
-    func warningToast( message: String, viewMain:UIView, duration: ToastDuration)  {
-      viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .warning,duration: duration, img: nil))
+    func warningToast( message: String, viewMain:UIView, duration: ToastDuration, position: ToastPosition)  {
+        viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .warning,duration: duration, img: nil, position: position))
     }
     
-    func infoToast(message: String,viewMain:UIView, duration: ToastDuration) {
-       viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .info,duration: duration, img: nil))
+    func infoToast(message: String,viewMain:UIView, duration: ToastDuration, position: ToastPosition) {
+       viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .info,duration: duration, img: nil, position: position))
     }
     
-    func dangerToast( message: String,viewMain:UIView, duration: ToastDuration)  {
-        viewMain.addSubview(self.createToast(message: message , MainView: viewMain, type: .danger,duration: duration, img: nil))
+    func dangerToast( message: String,viewMain:UIView, duration: ToastDuration, position: ToastPosition)  {
+        viewMain.addSubview(self.createToast(message: message , MainView: viewMain, type: .danger,duration: duration, img: nil, position: position))
     }
     
     private init() {
@@ -121,6 +126,16 @@ open class Toast {
         fatalError("CircleView is not NSCoding compliant")
     }
     
+    func toastPosition(position: ToastPosition, view: UIView) -> CGPoint {
+        switch position {
+        case .top:
+            return CGPoint(x: 20.0, y: 20.0)
+        case .center:
+            return CGPoint(x: 20.0, y: view.bounds.size.height / 2)
+        case .bottom:
+            return CGPoint(x: 20.0, y: view.bounds.size.height - 60)
+        }
+    }
     
 
 }
@@ -131,4 +146,7 @@ enum ToasType {
 }
 enum ToastDuration {
     case long, short
+}
+enum ToastPosition {
+    case top, center, bottom
 }
