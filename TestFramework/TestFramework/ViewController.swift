@@ -20,13 +20,13 @@ class ViewController: UIViewController {
 //        label.backgroundColor = .red
 //        label.text = "I'am a test label"
         
-//        Toast.shared.imageToast( message: "BaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisous", viewMain: self.view,duration: .long, img: UIImage(named: "5004497_orig.png")!)
+        Toast.shared.imageToast( message: "BaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisous", viewMain: self.view,duration: .long, img: UIImage(named: "5004497_orig.png")!, position: .center, sound: true)
         
 //        Toast.shared.warningToast(message: "NooBaaaaaaaa aaNooB aaaaaaaaaaNooBaaa aaaaaa aNooBaaaa aaaaaaNooBaaaa aaaaaaNo oBaaaaaaaaaa", viewMain: self.view, duration: .long, position: .center)
         
-        Toast.shared.customToast(message: "NooBaaaaaaaa aaNooB aaaaaaaaaaNooBaaa aaaaaa aNooBaaaa aaaaaaNooBaaaa aaaaaaNo oBaaaaaaaaaaaaaaaaaaaaaaaaaa", viewMain: self.view, duration: .long, position: .center, textColor: .yellow, backgroundColor: .brown)
+//        Toast.shared.customToast(message: "Hello", viewMain: self.view, duration: .long, position: .center, textColor: .yellow, backgroundColor: .brown, sound: true, mp3FileName: "Tick", mp3FileExt: "")
         
-
+//        Toast.shared.customToast(message: "Bye", viewMain: self.view, duration: .long, position: .center, textColor: .yellow, backgroundColor: .brown)
     }
 
     override func didReceiveMemoryWarning() {
