@@ -20,9 +20,9 @@ class ViewController: UIViewController {
 //        label.backgroundColor = .red
 //        label.text = "I'am a test label"
         
-        Toast.shared.imageToast( message: "BaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisousBaaaaaaaisous", viewMain: self.view,duration: .long, img: UIImage(named: "5004497_orig.png")!, position: .center, sound: true)
+//        Toast.shared.imageToast( message: "yolo", viewMain: self.view,duration: .long, img: UIImage(named: "img.png")!, position: .bottom, sound: true)
         
-//        Toast.shared.warningToast(message: "NooBaaaaaaaa aaNooB aaaaaaaaaaNooBaaa aaaaaa aNooBaaaa aaaaaaNooBaaaa aaaaaaNo oBaaaaaaaaaa", viewMain: self.view, duration: .long, position: .center)
+        Toast.shared.warningToast(message: "NooBaaaaaaaa ", viewMain: self.view, duration: .long, position: .bottom,sound: true)
         
 //        Toast.shared.customToast(message: "Hello", viewMain: self.view, duration: .long, position: .center, textColor: .yellow, backgroundColor: .brown, sound: true, mp3FileName: "Tick", mp3FileExt: "")
         

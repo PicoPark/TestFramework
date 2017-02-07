@@ -32,7 +32,7 @@ open class Toast {
         finalView.frame = MainView.frame
         self.title = UILabel()
         
-        self.title = toasType(type: type, backgroundColor: backgroundColor, textColor: textColor, message: message)
+//        self.title = toastType(type: type, backgroundColor: backgroundColor, textColor: textColor, message: message)
         
         if img == nil {
             self.title.sizeToFit()
@@ -50,11 +50,15 @@ open class Toast {
             let width = self.title.frame.width
             let height = self.title.frame.height
             let sizeToast = toastSize(view: finalView, width: width, height: height)
-            self.title = UILabel(frame:CGRect(x: toastPosition(position: position, view: finalView, width: sizeToast.width + 20, height: sizeToast.height + 20).x, y: toastPosition(position: position, view: finalView, width: width + 20, height: height + 20).y, width: sizeToast.width + 20, height: sizeToast.height + 20))
+            self.title = UILabel(frame:CGRect(x: 20.0, y: toastPosition(position: position, view: finalView, width: width + 20, height: height + 20).y-102, width: MainView.frame.size.width-40, height: sizeToast.height + 105))
 //            finalView.addSubview(self.imageV)
             finalView.addSubview(self.title)
             self.title.lineBreakMode = .byWordWrapping
             self.title.numberOfLines = 0
+             imageV = UIImageView(image: img!)
+            imageV.frame = CGRect(x:MainView.frame.size.width/2-25, y: toastPosition(position: position, view: finalView, width: width + 20, height: height + 20).y-105, width: 50, height: 50)
+            finalView.addSubview(imageV)
+
 //            self.title = UILabel(frame: CGRect(x:20.0, y:(MainView.frame.size.height)-120, width:(MainView.frame.size.width)-40, height:100))
 //            self.imageV = UIImageView(image: img)
 //            self.imageV.frame = CGRect(x:20.0, y:(MainView.frame.size.height)-300, width:(img?.size.width)!, height:(img?.size.height)!)
@@ -66,9 +70,10 @@ open class Toast {
         self.title.textAlignment = .center
         self.title.layer.cornerRadius = 15
         self.title.layer.masksToBounds = true
+        self.title.backgroundColor = backgroundColor
+        self.title.textColor = textColor
+        self.title.text =  message
         
-        self.title = toasType(type: type, backgroundColor: backgroundColor, textColor: textColor, message: message)
-
         toastDuration(duration: duration)
         
         if sound {
@@ -79,28 +84,28 @@ open class Toast {
     }
     
     // imageToast = image + texte message
-    func imageToast(message: String, viewMain:UIView, duration: ToastDuration, img: UIImage, position: ToastPosition, sound: Bool){
-        viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .warning,duration: duration, img: img, position: position, textColor: .black, backgroundColor: .blue, sound: sound, mp3FileName: "", mp3FileExt: ""))
-    }
+//    func imageToast(message: String, viewMain:UIView, duration: ToastDuration, img: UIImage, position: ToastPosition, sound: Bool){
+//        viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .warning,duration: duration, img: img, position: position, textColor: .black, backgroundColor: .blue, sound: sound, mp3FileName: "", mp3FileExt: ""))
+//    }
 
     // warningToast = warning texte message
     func warningToast( message: String, viewMain:UIView, duration: ToastDuration, position: ToastPosition, sound: Bool)  {
-        viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .warning,duration: duration, img: nil, position: position, textColor: .black, backgroundColor: .yellow, sound: sound, mp3FileName: "", mp3FileExt: ""))
+        viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .warning,duration: duration, img: UIImage(named: "warning.png"), position: position, textColor: .black, backgroundColor: .yellow, sound: sound, mp3FileName: "", mp3FileExt: ""))
     }
     
     // infoToast = info texte message
     func infoToast(message: String,viewMain:UIView, duration: ToastDuration, position: ToastPosition, sound: Bool) {
-       viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .info,duration: duration, img: nil, position: position, textColor: .black, backgroundColor: .gray, sound: sound, mp3FileName: "", mp3FileExt: ""))
+       viewMain.addSubview(self.createToast(message: message, MainView: viewMain,type: .info,duration: duration, img:UIImage(named: "info.png"), position: position, textColor: .white, backgroundColor: .blue, sound: sound, mp3FileName: "", mp3FileExt: ""))
     }
     
     // dangerToast = danger texte message
     func dangerToast( message: String,viewMain:UIView, duration: ToastDuration, position: ToastPosition, sound: Bool)  {
-        viewMain.addSubview(self.createToast(message: message , MainView: viewMain, type: .danger,duration: duration, img: nil, position: position, textColor: .black, backgroundColor: .red, sound: sound, mp3FileName: "", mp3FileExt: ""))
+        viewMain.addSubview(self.createToast(message: message , MainView: viewMain, type: .danger,duration: duration, img: UIImage(named: "danger.png"), position: position, textColor: .black, backgroundColor: .red, sound: sound, mp3FileName: "", mp3FileExt: ""))
     }
     
-    // customToast = tout est paramétrable
-    func customToast( message: String,viewMain:UIView, duration: ToastDuration, position: ToastPosition, textColor: UIColor, backgroundColor: UIColor, sound: Bool, mp3FileName: String, mp3FileExt: String)  {
-        viewMain.addSubview(self.createToast(message: message , MainView: viewMain, type: .custom ,duration: duration, img: nil, position: position, textColor: textColor, backgroundColor: backgroundColor, sound: sound, mp3FileName: mp3FileName, mp3FileExt: mp3FileExt))
+    // simpleToast = simple message
+    func simpleToast( message: String,viewMain:UIView, duration: ToastDuration, position: ToastPosition, sound: Bool)  {
+        viewMain.addSubview(self.createToast(message: message , MainView: viewMain, type: .simple ,duration: duration, img: nil, position: position, textColor: .white, backgroundColor: .gray, sound: sound, mp3FileName: "", mp3FileExt: ""))
     }
 
     private init() {
@@ -109,21 +114,21 @@ open class Toast {
         self.imageV = UIImageView()
     }
     
-    func toasType(type: ToasType, backgroundColor: UIColor, textColor: UIColor, message: String) -> UILabel {
+    func toastType(type: ToasType, backgroundColor: UIColor, textColor: UIColor, message: String) -> UILabel {
         switch type {
         case .warning:
             self.title.backgroundColor = backgroundColor
             self.title.textColor = textColor
-            self.title.text = "⚠️ " + message
+            self.title.text =  message
         case .danger:
             self.title.backgroundColor = backgroundColor
             self.title.textColor = textColor
-            self.title.text = "⚠️ " + message
+            self.title.text =  message
         case .info:
             self.title.backgroundColor = backgroundColor
             self.title.textColor = textColor
-            self.title.text = "ℹ️ " + message
-        case .custom:
+            self.title.text =  message
+        case .simple:
             self.title.backgroundColor = backgroundColor
             self.title.textColor = textColor
             self.title.text = message
@@ -135,30 +140,28 @@ open class Toast {
     func toastSound(type: ToasType, mp3FileName: String, mp3FileExt: String) {
         switch type {
         case .warning:
-            if let soundURL = Bundle.main.url(forResource: "Tick", withExtension: "mp3") {
+            if let soundURL = Bundle.main.url(forResource: "warning", withExtension: "mp3") {
                 AudioServicesCreateSystemSoundID(soundURL as CFURL, &tickSoundID)
             }
             AudioServicesPlaySystemSound(self.tickSoundID)
             
         case .danger:
-            if let soundURL = Bundle.main.url(forResource: "Tick", withExtension: "mp3") {
+            if let soundURL = Bundle.main.url(forResource: "danger", withExtension: "wav") {
                 AudioServicesCreateSystemSoundID(soundURL as CFURL, &tickSoundID)
             }
             AudioServicesPlaySystemSound(self.tickSoundID)
             
         case .info:
-            if let soundURL = Bundle.main.url(forResource: "Tick", withExtension: "mp3") {
+            if let soundURL = Bundle.main.url(forResource: "info", withExtension: "wav") {
                 AudioServicesCreateSystemSoundID(soundURL as CFURL, &tickSoundID)
             }
             AudioServicesPlaySystemSound(self.tickSoundID)
 
-        case .custom:
-            if (mp3FileName.characters.count > 0 && mp3FileExt.characters.count > 0) {
-                if let soundURL = Bundle.main.url(forResource: mp3FileName, withExtension: mp3FileExt) {
-                    AudioServicesCreateSystemSoundID(soundURL as CFURL, &customSoundID)
-                }
-                AudioServicesPlaySystemSound(self.customSoundID)
+        case .simple:
+            if let soundURL = Bundle.main.url(forResource: "info", withExtension: "wav") {
+                AudioServicesCreateSystemSoundID(soundURL as CFURL, &tickSoundID)
             }
+            AudioServicesPlaySystemSound(self.tickSoundID)
         }
     }
     
@@ -169,10 +172,16 @@ open class Toast {
             UIView.animate(withDuration: 1.0, delay: 6.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.title.alpha = CGFloat(0.0)
             }, completion: nil)
+            UIView.animate(withDuration: 1.0, delay: 6.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                self.imageV.alpha = CGFloat(0.0)
+            }, completion: nil)
             
         case .short:
             UIView.animate(withDuration: 1.0, delay: 3.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.title.alpha = CGFloat(0.0)
+            }, completion: nil)
+            UIView.animate(withDuration: 1.0, delay: 3.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                self.imageV.alpha = CGFloat(0.0)
             }, completion: nil)
         }
     }
@@ -232,7 +241,7 @@ open class Toast {
 
 // Listing des variables
 enum ToasType {
-    case info, danger, warning, custom
+    case info, danger, warning, simple
 }
 enum ToastDuration {
     case long, short
