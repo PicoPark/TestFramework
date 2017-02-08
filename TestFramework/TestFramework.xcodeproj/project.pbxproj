@@ -76,6 +76,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2500AFB21E4A59F500E0BA26 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				C95DD57C1E49CA73008703F6 /* danger.wav */,
+				C95DD5791E49CA1E008703F6 /* info.wav */,
+				C95DD57F1E49CAC2008703F6 /* warning.mp3 */,
+			);
+			name = Music;
+			sourceTree = "<group>";
+		};
+		2500AFB31E4A5A0500E0BA26 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				C95DD5701E49C7F0008703F6 /* warning.png */,
+				C95DD5761E49C915008703F6 /* danger.png */,
+				C95DD5731E49C890008703F6 /* info.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		767A39471E38BFC9001814C4 = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +123,8 @@
 				767A395A1E38BFCA001814C4 /* Assets.xcassets */,
 				767A395C1E38BFCA001814C4 /* LaunchScreen.storyboard */,
 				767A395F1E38BFCA001814C4 /* Info.plist */,
-				C95DD5701E49C7F0008703F6 /* warning.png */,
-				C95DD5761E49C915008703F6 /* danger.png */,
-				C95DD5731E49C890008703F6 /* info.png */,
-				C95DD57C1E49CA73008703F6 /* danger.wav */,
-				C95DD5791E49CA1E008703F6 /* info.wav */,
-				C95DD57F1E49CAC2008703F6 /* warning.mp3 */,
+				2500AFB31E4A5A0500E0BA26 /* Image */,
+				2500AFB21E4A59F500E0BA26 /* Music */,
 				767A39731E38C0AE001814C4 /* Toast.swift */,
 			);
 			path = TestFramework;

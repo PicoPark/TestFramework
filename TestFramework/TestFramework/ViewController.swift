@@ -12,28 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = UIColor.clear
-//        view.isOpaque = false
-//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-//        label.center = CGPoint(x: 160, y: 285)
-//        label.textAlignment = .center
-//        label.backgroundColor = .red
-//        label.text = "I'am a test label"
         
-//        Toast.shared.imageToast( message: "yolo", viewMain: self.view,duration: .long, img: UIImage(named: "img.png")!, position: .bottom, sound: true)
+        Toast.shared.warningToast(message: "azerty azerty azerty azerty azerty azerty azerty azerty azerty azerty azerty azerty azerty azerty azerty azerty azerty azerty ", viewMain: self.view, duration: .long, position: .top,sound: true)
         
-        Toast.shared.warningToast(message: "NooBaaaaaaaa ", viewMain: self.view, duration: .long, position: .bottom,sound: true)
-        
-//        Toast.shared.customToast(message: "Hello", viewMain: self.view, duration: .long, position: .center, textColor: .yellow, backgroundColor: .brown, sound: true, mp3FileName: "Tick", mp3FileExt: "")
-        
-//        Toast.shared.customToast(message: "Bye", viewMain: self.view, duration: .long, position: .center, textColor: .yellow, backgroundColor: .brown)
-    }
+//        Toast.shared.simpleToast(message: "message test", viewMain: self.view, duration: .long, position: .center, sound: true)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
     }
-
 
 }
 
